@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Orbit
+GenericName=Game Bar
+Comment=Overlay para jogos: biblioteca, áudio, capturas e sistema
+Exec=orbit
+Icon=applications-games
+Categories=Utility;
+Keywords=gamebar;overlay;controle;gamepad;steam;
+StartupNotify=false

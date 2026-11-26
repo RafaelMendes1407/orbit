@@ -1,0 +1,156 @@
+/* Orbit — tema escuro, acento violeta. */
+
+@define-color accent #7c5cff;
+@define-color accent_soft rgba(124, 92, 255, 0.20);
+@define-color fg #eceef6;
+@define-color dim #8f93a8;
+
+window.orbit {
+  background-color: rgba(4, 6, 12, 0.50);
+  color: @fg;
+}
+
+.panel {
+  background-color: rgba(18, 20, 30, 0.96);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  padding: 20px 24px 16px 24px;
+}
+
+.panel.enter {
+  animation: orbit-pop 170ms cubic-bezier(0.2, 0.9, 0.25, 1.0);
+}
+
+@keyframes orbit-pop {
+  from { opacity: 0; transform: translate(0, 14px) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+
+.brand { font-weight: 800; font-size: 17px; letter-spacing: 2px; }
+.clock { font-weight: 700; font-size: 16px; }
+.dim { color: @dim; }
+.rec { color: #ff4d6a; font-weight: 800; font-size: 13px; }
+
+/* Abas */
+button.tab {
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 999px;
+  padding: 6px 18px;
+  color: @dim;
+  font-weight: 700;
+  transition: background-color 120ms ease-out, color 120ms ease-out;
+}
+button.tab:hover { color: @fg; background-color: rgba(255, 255, 255, 0.06); }
+button.tab.active { background-color: @accent; color: white; }
+
+.hint-key {
+  background-color: rgba(255, 255, 255, 0.10);
+  border-radius: 6px;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #d4d7e6;
+}
+
+.page { padding: 4px 2px; }
+
+.section-title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: @dim;
+  margin-top: 6px;
+}
+
+/* Cards de jogos */
+button.card {
+  background: rgba(255, 255, 255, 0.035);
+  border: 2px solid transparent;
+  box-shadow: none;
+  border-radius: 16px;
+  padding: 6px;
+  transition: background-color 120ms ease-out, border-color 120ms ease-out;
+}
+button.card:hover { background-color: rgba(255, 255, 255, 0.08); }
+button.card:focus-visible {
+  border-color: @accent;
+  background-color: @accent_soft;
+  outline: none;
+}
+.art { border-radius: 11px; background-color: rgba(255, 255, 255, 0.04); }
+.art-icon { background-image: linear-gradient(160deg, rgba(124, 92, 255, 0.25), rgba(255, 255, 255, 0.03)); }
+.card-title { font-size: 12px; font-weight: 600; color: @fg; }
+
+/* Tiles (áudio, captura, sistema) */
+button.tile {
+  background: rgba(255, 255, 255, 0.045);
+  border: 2px solid transparent;
+  box-shadow: none;
+  border-radius: 16px;
+  padding: 14px 18px;
+  color: @fg;
+  transition: background-color 120ms ease-out, border-color 120ms ease-out;
+}
+button.tile:hover { background-color: rgba(255, 255, 255, 0.08); }
+button.tile:focus-visible {
+  border-color: @accent;
+  background-color: @accent_soft;
+  outline: none;
+}
+button.tile:disabled { opacity: 0.45; }
+button.tile.selected { background-color: rgba(124, 92, 255, 0.12); }
+button.tile.selected .tile-icon,
+.check { color: @accent; }
+button.tile.off .tile-icon { color: #ff9f43; }
+button.tile.recording { border-color: rgba(255, 77, 106, 0.6); }
+button.tile.recording .tile-icon { color: #ff4d6a; }
+button.tile.armed { background-color: rgba(255, 77, 106, 0.25); border-color: #ff4d6a; }
+button.tile.close-win { padding: 14px 20px; }
+button.tile.close-win:focus-visible { border-color: #ff4d6a; background-color: rgba(255, 77, 106, 0.22); }
+button.tile.close-win:focus-visible image { color: #ff4d6a; }
+button.tile.unplugged { opacity: 0.6; }
+button.tile.unplugged:focus-visible { opacity: 1; }
+button.tile.subtle { background-color: rgba(255, 255, 255, 0.025); }
+
+.tile-icon { color: #c9cbe0; }
+.tile-title { font-weight: 700; font-size: 14px; }
+.tile-sub { font-size: 12px; color: @dim; }
+
+/* Volume */
+scale.volume trough {
+  min-height: 8px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.10);
+  border: none;
+}
+scale.volume highlight {
+  border-radius: 4px;
+  background-color: @accent;
+  border: none;
+}
+scale.volume slider {
+  min-width: 20px;
+  min-height: 20px;
+  margin: -7px;
+  border-radius: 10px;
+  background-color: white;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+scale.volume:focus-visible slider { box-shadow: 0 0 0 5px rgba(124, 92, 255, 0.55); }
+.vol-label { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.footer { font-size: 12px; margin-top: 2px; }
+
+scrollbar { opacity: 0.4; }
+
+/* Aviso de pareamento Bluetooth */
+.bt-banner {
+  background-color: rgba(124, 92, 255, 0.14);
+  border: 1px solid rgba(124, 92, 255, 0.45);
+  border-radius: 16px;
+  padding: 14px 16px;
+}
