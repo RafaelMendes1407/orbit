@@ -2,119 +2,122 @@
 
 # ◉ Orbit
 
-**Uma "Game Bar" para Linux, feita para o controle.**
+**A "Game Bar" for Linux, built for the gamepad.**
 
-Aperte o botão **Guide** (o do meio) e um painel aparece por cima de tudo, inclusive de
-jogos em tela cheia, para abrir jogos, fechar programas, trocar o som, parear um fone
-Bluetooth ou tirar um print, sem largar o controle.
+Press the **Guide** button (the middle one) and a panel appears on top of everything, even
+fullscreen games. From there you can launch games, close programs, switch audio devices,
+pair a Bluetooth headset or take a screenshot, without putting the controller down.
 
-![Aba Jogos](docs/screenshots/games.png)
+![Games tab](docs/screenshots/games.png)
 
 </div>
 
+> **Note:** the interface is currently in Brazilian Portuguese, which is why the
+> screenshots show Portuguese labels.
+
 ---
 
-## Sumário
+## Contents
 
-- [Recursos](#recursos)
-- [Capturas de tela](#capturas-de-tela)
-- [Controles](#controles)
-- [Ambientes gráficos suportados](#ambientes-gráficos-suportados)
-- [Instalação](#instalação)
-- [Uso](#uso)
-- [Configuração recomendada](#configuração-recomendada)
-- [Desempenho](#desempenho)
-- [Solução de problemas](docs/solucao-de-problemas.md)
-- [Arquitetura e desenvolvimento](docs/arquitetura.md)
-- [Licença](#licença)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Controls](#controls)
+- [Supported desktops](#supported-desktops)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Recommended setup](#recommended-setup)
+- [Performance](#performance)
+- [Troubleshooting](docs/troubleshooting.md)
+- [Architecture and development](docs/architecture.md)
+- [License](#license)
 
-## Recursos
+## Features
 
-| Aba | O que faz |
+| Tab | What it does |
 |---|---|
-| **Jogos** | Steam Big Picture, jogos da Steam com capa (os jogados recentemente primeiro) e jogos instalados por `.desktop` (Heroic, Lutris, nativos…) |
-| **Programas** | Todas as janelas abertas. **A** alterna para ela, **X** fecha |
-| **Áudio** | **Todas** as saídas e entradas, inclusive as que exigem trocar o perfil da placa (como o 2º monitor HDMI de uma placa de vídeo), volume de saída e do microfone, mudo |
-| **Bluetooth** | Liga/desliga (desbloqueia o rfkill se preciso), procura, pareia, conecta/desconecta e esquece dispositivos. Códigos de pareamento aparecem na tela com Confirmar/Cancelar |
-| **Captura** | Print da tela inteira ou de uma região, gravação de tela e **Instant Replay** (salva os últimos 30 s) |
-| **Sistema** | Configurações, Arquivos, Bloquear, Suspender, Reiniciar, Desligar |
+| **Games** (*Jogos*) | Steam Big Picture, Steam games with cover art (most recently played first) and games installed through `.desktop` files (Heroic, Lutris, native…) |
+| **Programs** (*Programas*) | Every open window. **A** switches to it, **X** closes it |
+| **Audio** (*Áudio*) | **Every** output and input, including those that need a different card profile (such as the second HDMI monitor on a graphics card), output and microphone volume, mute |
+| **Bluetooth** | Turn on/off (lifts the rfkill soft block if needed), scan, pair, connect/disconnect and forget devices. Pairing codes are shown on screen with Confirm/Cancel |
+| **Capture** (*Captura*) | Full-screen or region screenshots, screen recording and **Instant Replay** (saves the last 30 s) |
+| **System** (*Sistema*) | Settings, Files, Lock, Suspend, Restart, Shut down |
 
-## Capturas de tela
+## Screenshots
 
 <table>
   <tr>
-    <td><img src="docs/screenshots/windows.png" alt="Aba Programas"><br><sub><b>Programas</b>: alterne ou feche qualquer janela pelo controle</sub></td>
-    <td><img src="docs/screenshots/audio.png" alt="Aba Áudio"><br><sub><b>Áudio</b>: todas as saídas, inclusive cada monitor HDMI</sub></td>
+    <td><img src="docs/screenshots/windows.png" alt="Programs tab"><br><sub><b>Programs</b>: switch to or close any window with the controller</sub></td>
+    <td><img src="docs/screenshots/audio.png" alt="Audio tab"><br><sub><b>Audio</b>: every output, including each HDMI monitor</sub></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/bluetooth.png" alt="Aba Bluetooth"><br><sub><b>Bluetooth</b>: ligue, procure e pareie dispositivos</sub></td>
-    <td><img src="docs/screenshots/capture.png" alt="Aba Captura"><br><sub><b>Captura</b>: prints, gravação e Instant Replay</sub></td>
+    <td><img src="docs/screenshots/bluetooth.png" alt="Bluetooth tab"><br><sub><b>Bluetooth</b>: turn on, scan and pair devices</sub></td>
+    <td><img src="docs/screenshots/capture.png" alt="Capture tab"><br><sub><b>Capture</b>: screenshots, recording and Instant Replay</sub></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/system.png" alt="Aba Sistema"><br><sub><b>Sistema</b>: atalhos e energia</sub></td>
-    <td><img src="docs/screenshots/games.png" alt="Aba Jogos"><br><sub><b>Jogos</b>: biblioteca da Steam e outros launchers</sub></td>
+    <td><img src="docs/screenshots/system.png" alt="System tab"><br><sub><b>System</b>: shortcuts and power</sub></td>
+    <td><img src="docs/screenshots/games.png" alt="Games tab"><br><sub><b>Games</b>: Steam library and other launchers</sub></td>
   </tr>
 </table>
 
-> As capturas são geradas pelo próprio Orbit com `orbit --render-docs docs/screenshots`.
+> The screenshots are generated by Orbit itself with `orbit --render-docs docs/screenshots`.
 
-## Controles
+## Controls
 
-| Botão | Ação |
+| Button | Action |
 |---|---|
-| **Guide** | abre / fecha o Orbit |
-| **D-pad / analógico esquerdo** | navega (segure para repetir) |
-| **A** | seleciona |
-| **B** | fecha |
-| **X** | *Programas*: fecha o programa · *Bluetooth*: esquece o dispositivo |
-| **LB / RB** | troca de aba |
-| **← / →** num controle deslizante | volume ±5 % |
+| **Guide** | open / close Orbit |
+| **D-pad / left stick** | navigate (hold to repeat) |
+| **A** | select |
+| **B** | close |
+| **X** | *Programs*: close the program · *Bluetooth*: forget the device |
+| **LB / RB** | switch tab |
+| **← / →** on a slider | volume ±5 % |
 
-Teclado e mouse também funcionam: setas, Enter, Esc, ou clique fora do painel para fechar.
+Keyboard and mouse work too: arrow keys, Enter, Esc, or click outside the panel to close it.
 
-Enquanto o Orbit está aberto o controle fica **exclusivo dele** (o jogo não recebe os
-botões de navegação). Ao fechar, volta para o jogo.
+While Orbit is open it takes **exclusive control** of the gamepad, so the game doesn't
+receive the navigation buttons. When you close it, the gamepad goes back to the game.
 
-Cada aba lembra onde o cursor estava. Se o item some (um programa fechou, um fone
-desconectou), o cursor vai para o vizinho e não se perde.
+Each tab remembers where the cursor was. If the item goes away (a program closed, a
+headset disconnected), the cursor moves to its neighbour instead of getting lost.
 
-## Ambientes gráficos suportados
+## Supported desktops
 
-| Ambiente | Overlay por cima de jogos | Programas abertos | Captura de tela |
+| Desktop | Overlay on top of games | Open programs | Screenshots |
 |---|:---:|:---:|---|
 | **COSMIC** | ✅ | ✅ | `cosmic-screenshot` |
 | **KDE Plasma** (Wayland) | ✅ | ✅ | `spectacle` |
 | **Hyprland, Sway, niri, labwc, Wayfire, river** | ✅ | ✅ | `grim` + `slurp` |
-| **GNOME** (Wayland) | janela em tela cheia¹ | ❌² | `gnome-screenshot` / portal |
-| **X11** (XFCE, Cinnamon, MATE, KDE/GNOME em X11…) | janela em tela cheia¹ | ✅ | `maim` / `scrot` / portal |
+| **GNOME** (Wayland) | fullscreen window¹ | ❌² | `gnome-screenshot` / portal |
+| **X11** (XFCE, Cinnamon, MATE, KDE/GNOME on X11…) | fullscreen window¹ | ✅ | `maim` / `scrot` / portal |
 
-¹ O overlay de verdade usa o protocolo *layer-shell*, que o GNOME e o X11 não têm. Lá o
-Orbit abre como uma janela em tela cheia comum.<br>
-² O GNOME não permite que aplicativos listem as janelas abertas.
+¹ The real overlay uses the *layer-shell* protocol, which GNOME and X11 don't have. There,
+Orbit opens as a regular fullscreen window.<br>
+² GNOME doesn't let applications list the open windows.
 
-Áudio (PipeWire ou PulseAudio), Bluetooth (BlueZ) e o controle (evdev) funcionam em
-qualquer ambiente. Sem nenhuma ferramenta de captura instalada, o Orbit pede o print ao
-`xdg-desktop-portal`.
+Audio (PipeWire or PulseAudio), Bluetooth (BlueZ) and the gamepad (evdev) work on any
+desktop. If no screenshot tool is installed, Orbit asks `xdg-desktop-portal` for the
+screenshot.
 
-## Instalação
+## Installation
 
-### 1. Dependências
+### 1. Dependencies
 
 | | Arch / CachyOS / Manjaro | Fedora | Debian / Ubuntu |
 |---|---|---|---|
-| Compilação | `rust gtk4 pkgconf` | `rust cargo gtk4-devel` | `cargo libgtk-4-dev pkg-config` |
-| Overlay (recomendado) | `gtk4-layer-shell` | `gtk4-layer-shell-devel` | `libgtk4-layer-shell-dev` |
-| Áudio | `libpulse` (`pactl`) | `pulseaudio-utils` | `pulseaudio-utils` |
-| Gravação / replay (opcional) | `gpu-screen-recorder` | `gpu-screen-recorder` (COPR) | [gpu-screen-recorder](https://git.dec05eba.com/gpu-screen-recorder/about/) |
-| Bluetooth (opcional) | `bluez` | `bluez` | `bluez` |
+| Build | `rust gtk4 pkgconf` | `rust cargo gtk4-devel` | `cargo libgtk-4-dev pkg-config` |
+| Overlay (recommended) | `gtk4-layer-shell` | `gtk4-layer-shell-devel` | `libgtk4-layer-shell-dev` |
+| Audio | `libpulse` (`pactl`) | `pulseaudio-utils` | `pulseaudio-utils` |
+| Recording / replay (optional) | `gpu-screen-recorder` | `gpu-screen-recorder` (COPR) | [gpu-screen-recorder](https://git.dec05eba.com/gpu-screen-recorder/about/) |
+| Bluetooth (optional) | `bluez` | `bluez` | `bluez` |
 
-Exemplo no Arch/CachyOS:
+Example on Arch/CachyOS:
 
 ```sh
 sudo pacman -S --needed rust gtk4 pkgconf gtk4-layer-shell libpulse bluez gpu-screen-recorder
 ```
 
-### 2. Compilar e instalar
+### 2. Build and install
 
 ```sh
 git clone https://github.com/RafaelMendes1407/orbit.git
@@ -122,73 +125,77 @@ cd orbit
 ./install.sh
 ```
 
-O script:
+The script:
 
-1. compila em modo release (sem o `gtk4-layer-shell`, compila no modo janela e avisa);
-2. instala em `~/.local/bin/orbit` (sem root);
-3. coloca o Orbit no autostart da sessão (`orbit --daemon`);
-4. reinicia a instância que estiver rodando.
+1. builds in release mode (without `gtk4-layer-shell` it builds the window mode and tells you);
+2. installs to `~/.local/bin/orbit` (no root needed);
+3. adds Orbit to session autostart (`orbit --daemon`);
+4. restarts any running instance.
 
-Para remover: `./uninstall.sh`.
+To uninstall: `./uninstall.sh`.
 
-### 3. Permissão para ler o controle
+### 3. Permission to read the gamepad
 
-O Orbit lê o controle direto do kernel (`/dev/input/event*`). Na maioria das distros
-com systemd, o usuário logado já tem acesso aos controles (regra *uaccess*). Se o Guide
-não fizer nada, veja [Solução de problemas](docs/solucao-de-problemas.md#o-botão-guide-não-abre-nada).
+Orbit reads the gamepad straight from the kernel (`/dev/input/event*`). On most systemd
+distributions the logged-in user already has access to gamepads (the *uaccess* rule).
+If Guide does nothing, see [Troubleshooting](docs/troubleshooting.md#the-guide-button-does-nothing).
 
-## Uso
+## Usage
 
 ```text
-orbit                 abre/fecha o painel (inicia se preciso)
-orbit --daemon        inicia em segundo plano, escondido
-orbit --quit          encerra a instância em execução
-orbit --list-windows  mostra o backend e as janelas detectadas (diagnóstico)
-orbit --list-audio    mostra as saídas/entradas que a aba Áudio vai listar
-orbit --render-docs D gera as capturas de tela de cada aba em D/
+orbit                 open/close the panel (starts it if needed)
+orbit --daemon        start in the background, hidden
+orbit --quit          stop the running instance
+orbit --list-windows  show the window backend and the detected windows (diagnostics)
+orbit --list-audio    show the outputs/inputs the Audio tab will list
+orbit --render-docs D render a screenshot of every tab into D/
 ```
 
-### Atalho de teclado (opcional)
+### Keyboard shortcut (optional)
 
-Crie um atalho com o comando `orbit` (ex.: <kbd>Super</kbd>+<kbd>G</kbd>):
+Create a shortcut that runs `orbit` (e.g. <kbd>Super</kbd>+<kbd>G</kbd>):
 
-| Ambiente | Onde |
+| Desktop | Where |
 |---|---|
-| COSMIC | Configurações → Teclado → Atalhos de teclado → Atalhos personalizados |
-| KDE Plasma | Configurações do sistema → Atalhos → Adicionar comando |
-| GNOME | Configurações → Teclado → Atalhos personalizados |
-| Hyprland | `bind = SUPER, G, exec, orbit` no `hyprland.conf` |
-| Sway | `bindsym $mod+g exec orbit` no `config` |
+| COSMIC | Settings → Keyboard → Keyboard shortcuts → Custom shortcuts |
+| KDE Plasma | System Settings → Shortcuts → Add command |
+| GNOME | Settings → Keyboard → Custom shortcuts |
+| Hyprland | `bind = SUPER, G, exec, orbit` in `hyprland.conf` |
+| Sway | `bindsym $mod+g exec orbit` in `config` |
 
-### Onde ficam os arquivos
+### Where files go
 
-| O quê | Pasta |
+Folder names follow your XDG user directories, so they are localized (e.g. `~/Imagens`
+on a Portuguese system).
+
+| What | Folder |
 |---|---|
-| Capturas de tela | `~/Imagens/Screenshots` |
-| Gravações | `~/Vídeos/Orbit` |
-| Instant Replay | `~/Vídeos/Orbit/Replays` |
+| Screenshots | `~/Pictures/Screenshots` |
+| Recordings | `~/Videos/Orbit` |
+| Instant Replay | `~/Videos/Orbit/Replays` |
 
-## Configuração recomendada
+## Recommended setup
 
-- **Steam aberta:** a Steam também usa o botão Guide. Para ele abrir só o Orbit, vá em
-  *Steam → Configurações → Controle* e desative **"O botão Guia foca a Steam"**.
-- **Instant Replay** e **gravação** usam o `gpu-screen-recorder`, que grava pelo encoder
-  da GPU e custa quase nada de desempenho.
-- **Áudio:** saídas desconectadas (portas sem nada plugado) ficam escondidas em
-  *"▾ Mostrar saídas desconectadas"*. Escolher uma saída que precisa de outro perfil
-  troca o perfil da placa e tenta manter o microfone que estava ativo.
+- **Steam running:** Steam also uses the Guide button. To make it open only Orbit, go to
+  *Steam → Settings → Controller* and turn off **"Guide button focuses Steam"**.
+- **Instant Replay** and **recording** use `gpu-screen-recorder`, which records with the
+  GPU encoder and has almost no performance cost.
+- **Audio:** outputs with nothing plugged in are tucked away under
+  *"▾ Show disconnected outputs"*. Picking an output that needs a different profile
+  switches the card profile and tries to keep the microphone that was active.
 
-## Desempenho
+## Performance
 
-- Binário nativo em **Rust + GTK4**, cerca de **75 MB de RAM** residente (boa parte é
-  biblioteca compartilhada) e **0 % de CPU** parado.
-- Fica residente com a janela já montada, então abrir é só mostrar a superfície (instantâneo).
-- Controle, janelas e Bluetooth são lidos por eventos: as threads dormem até o kernel,
-  o compositor ou o BlueZ avisarem algo. Nada fica consultando em loop.
-- Capas da Steam são decodificadas já no tamanho final e guardadas em cache.
-- A busca Bluetooth só roda com a aba Bluetooth aberta.
+- Native **Rust + GTK4** binary, about **75 MB of resident memory** (much of it shared
+  libraries) and **0 % CPU** when idle.
+- Stays resident with the window already built, so opening it just shows the surface
+  (instant).
+- Gamepad, windows and Bluetooth are event-driven: threads sleep until the kernel, the
+  compositor or BlueZ report something. Nothing polls in a loop.
+- Steam covers are decoded straight to their final size and cached.
+- Bluetooth scanning only runs while the Bluetooth tab is open.
 
-## Licença
+## License
 
-[GPL-3.0-or-later](LICENSE). O Orbit usa a biblioteca
-[`cosmic-protocols`](https://github.com/pop-os/cosmic-protocols) (GPL-3.0) para o suporte ao COSMIC.
+[GPL-3.0-or-later](LICENSE). Orbit uses the
+[`cosmic-protocols`](https://github.com/pop-os/cosmic-protocols) library (GPL-3.0) for COSMIC support.

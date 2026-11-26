@@ -2,7 +2,7 @@
 name = "orbit"
 version = "0.1.0"
 edition = "2021"
-description = "Overlay estilo Game Bar para Linux, aberto pelo botão Guide do controle"
+description = "A gamepad-driven \"Game Bar\" overlay for Linux, opened with the Guide button"
 license = "GPL-3.0-or-later"
 repository = "https://github.com/RafaelMendes1407/orbit"
 readme = "README.md"
